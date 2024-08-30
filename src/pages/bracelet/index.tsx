@@ -1,31 +1,30 @@
 import { MovableArea, MovableView, Text, View } from '@tarojs/components'
+import Sortablejs from 'sortablejs'
+import { useEffect, useRef, useState } from 'react'
 import styles from './index.module.scss'
 
-export default function index() {
+export default function Index() {
   const data = Array.from({ length: 15 }).map((_, i) => ({
     id: i,
     name: `${i}`,
   }))
+  const braceletRef = useRef(null)
+  const [listData, setListData] = useState(data)
+  useEffect(() => {
+    const sortable = new Sortablejs(braceletRef.current!, {
+      animation: 150,
+      onEnd: (e) => {
+        console.log(e, listData)
+      },
+    })
+  }, [])
   return (
-    // <View >
-    //   {data.map((item) => (
-    //     <View key={item.id} className="bracelet-item">
-    //       <Text>{item.name}</Text>
-    //     </View>
-    //   ))}
-    // </View>
-    <MovableArea className={styles.root}>
-      {data.map((item) => {
-        return (
-          <MovableView
-            inertia
-            className="bracelet-item"
-            direction="all"
-            key={item.id}
-            x={item.id * 50}
-          ></MovableView>
-        )
-      })}
-    </MovableArea>
+    <View ref={braceletRef} className={styles.root}>
+      {listData.map((item) => (
+        <View key={item.id} className="bracelet-item">
+          <Text>{item.name}</Text>
+        </View>
+      ))}
+    </View>
   )
 }

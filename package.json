@@ -28,7 +28,8 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix ./"
   },
   "browserslist": [
     "last 3 versions",
@@ -54,6 +55,7 @@
     "@tarojs/taro": "4.0.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "sortablejs": "^1.15.2",
     "taro-ui": "^3.2.1"
   },
   "devDependencies": {
@@ -62,6 +64,7 @@
     "@tarojs/test-utils-react": "^0.1.1",
     "@tarojs/vite-runner": "4.0.5",
     "@types/react": "^18.0.0",
+    "@types/sortablejs": "^1.15.8",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "@vitejs/plugin-react": "^4.1.0",
