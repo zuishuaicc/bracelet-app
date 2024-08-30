@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "bracelet-app",
+  "description": "diy手镯网页",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
