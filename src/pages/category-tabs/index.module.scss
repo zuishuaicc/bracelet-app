@@ -1,0 +1,10 @@
+.root{
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  :global{
+    .labelTag{
+      cursor: pointer;
+    }
+  }
+}

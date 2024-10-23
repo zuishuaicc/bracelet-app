@@ -1,18 +1,33 @@
-$height:80px;
-$width:80px;
-.root{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  width: 100%;
-  background-color: #50c163;
-  :global{
-    .bracelet-item{
-      width: $width;
-      height: $height;
-      border: 1px solid #000;
+.root {
+  :global {
+    .clear-btn {
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: #4e7fdb;
+      color: #fff;
+    }
+
+    .bracelet-container {
       display: flex;
-      background-color: #8df;
+      flex-wrap: wrap;
+      gap: 5px;
+      height: $height;
+      background-color: #cedbd0;
+      border-radius: calc($height/2);
+      padding: 0 calc($width/2);
+
+      .bracelet-item {
+        display: flex;
+        width: $width;
+        height: $height;
+        cursor: pointer;
+
+        .bracelet-item-img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
 }

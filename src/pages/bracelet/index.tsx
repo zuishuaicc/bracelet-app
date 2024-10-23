@@ -1,30 +1,26 @@
-import { MovableArea, MovableView, Text, View } from '@tarojs/components'
-import Sortablejs from 'sortablejs'
-import { useEffect, useRef, useState } from 'react'
+import useSortable from '@/hooks/useSortable'
+import { useStore } from '@/store'
+import { Image, Text, View } from '@tarojs/components'
 import styles from './index.module.scss'
 
-export default function Index() {
-  const data = Array.from({ length: 15 }).map((_, i) => ({
-    id: i,
-    name: `${i}`,
-  }))
-  const braceletRef = useRef(null)
-  const [listData, setListData] = useState(data)
-  useEffect(() => {
-    const sortable = new Sortablejs(braceletRef.current!, {
-      animation: 150,
-      onEnd: (e) => {
-        console.log(e, listData)
-      },
-    })
-  }, [])
+export default function Bracelet() {
+  const selectImgList = useStore((state) => state.selectImgList)
+  const setSelectImgList = useStore((state) => state.setSelectImgList)
+  const { braceletRef } = useSortable()
   return (
-    <View ref={braceletRef} className={styles.root}>
-      {listData.map((item) => (
-        <View key={item.id} className="bracelet-item">
-          <Text>{item.name}</Text>
-        </View>
-      ))}
+    <View className={styles.root}>
+      <View>
+        <Text className="clear-btn" onClick={() => setSelectImgList([])}>
+          清空
+        </Text>
+      </View>
+      <View ref={braceletRef} className="bracelet-container">
+        {selectImgList.map((item) => (
+          <View key={item.id} className="bracelet-item">
+            <Image className="bracelet-item-img" src={`../../assets/images/HA-${item.id + 1}.png`}></Image>
+          </View>
+        ))}
+      </View>
     </View>
   )
 }

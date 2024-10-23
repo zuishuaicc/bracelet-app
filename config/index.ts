@@ -43,6 +43,9 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
         },
       },
     },
+    sass: {
+      resource: [path.resolve(__dirname, '..', 'src/assets/styles/variable.scss')],
+    },
     h5: {
       publicPath: '/',
       staticDirectory: 'static',
@@ -65,6 +68,7 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
           },
         },
       },
+      esnextModules: ['taro-ui'],
     },
     rn: {
       appName: 'taroDemo',

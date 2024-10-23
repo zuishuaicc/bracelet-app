@@ -1,7 +1,7 @@
 {
 	"miniprogramRoot": "dist/",
 	"projectname": "bracelet-app",
-	"description": "diy手镯网页",
+	"description": "DIY手链网页",
 	"appid": "touristappid",
 	"setting": {
 		"urlCheck": true,

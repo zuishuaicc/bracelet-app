@@ -1,0 +1,25 @@
+.root {
+  flex: auto;
+  overflow: auto;
+  margin-top: 10px;
+  border: 1px solid #8df;
+
+  :global {
+    .candidate-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, $width);
+      gap: 10px;
+
+      .candidate-item {
+        background-color: #8df;
+        height: $height;
+        text-align: center;
+
+        .candidate-item-img {
+          height: $height;
+          width: $width;
+        }
+      }
+    }
+  }
+}
